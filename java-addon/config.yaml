@@ -1,0 +1,19 @@
+name: Java Add-on
+version: "0.1.1"
+slug: java-addon
+description: Java Add-on
+url: "https://github.com/andrei-vss/home-assistant-java-addon"
+arch:
+  - aarch64
+  - amd64
+init: false
+map:
+  - share:rw
+  - addon_config:rw
+  - homeassistant_config:rw
+options:
+  ha_host: "http://homeassistant.local:8123"
+  ha_token: ""
+schema:
+  ha_host: "str"
+  ha_token: "str"
