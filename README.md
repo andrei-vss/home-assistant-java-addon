@@ -1,9 +1,7 @@
-## Add-ons
+# Add-ons
 
-This repository contains the following add-ons
+This repository contains the following add-ons:
 
-- Java Addon
+### - Java Addon
 
-
-[aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
-[amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
+This addon allows you to run a Java JAR file inside Home Assistant. Simply place your JAR in the `apps` folder inside the addon config directory, and name it `app.jar`.
