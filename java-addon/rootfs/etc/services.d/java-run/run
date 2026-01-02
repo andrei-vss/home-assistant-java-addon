@@ -9,14 +9,24 @@ CONFIG_DIR="/config"
 APPS_DIR="$CONFIG_DIR/apps"
 mkdir -p "$APPS_DIR"
 
-# Copiază JAR-ul default doar dacă nu există deja
 if [ ! -f "$APPS_DIR/app.jar" ]; then
     cp /opt/app/app.jar "$APPS_DIR/app.jar"
 fi
 
 
-# Export Supervisor token for Java app (if needed)
-export SUPERVISOR_TOKEN="$SUPERVISOR_TOKEN"
+
+# Declare variables
+declare ha_host
+declare ha_token
+
+## Get the config options
+ha_host=$(bashio::config 'ha_host')
+ha_token=$(bashio::config 'ha_token')
+
+
+# Export Home Assistant variables for Java
+export HA_HOST="$ha_host"
+export HA_TOKEN="$ha_token"
 
 ## Run Java program
 exec java -jar "$APPS_DIR/app.jar"
